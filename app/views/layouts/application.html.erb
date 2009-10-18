@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <title><%= yield :title %></title>
+   <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+</head>
+<body>
+<div id="doc2" class="yui-t7">
+   <div id="hd" role="banner"><h1>Header</h1></div>
+   <div id="bd" role="main">
+	  <%= yield %>
+	 </div>
+   <div id="ft" role="contentinfo"><p>Footer</p></div>
+</div>
+</body>
+</html>
