@@ -1,0 +1,11 @@
+passTarefas iniciais:
+    - Login por usuário. Usuários devem ter:
+        - Nome/email/senha.
+    - Permitir que o usuário crie Projetos. Projetos deve ter:
+        - Nome/Criador/Desenvolvedores/Tarefas.
+        - Somente o dono pode adicionar novos usuários para desenvolver.
+        - Usuários que participem do projeto podem criar novas tarefas dentro dele.
+        - Tarefas possuem:
+            - Nome, prazo e importância.
+            - Sprints serão definidos pelo prazo de criação (ver com Ródi).
+
