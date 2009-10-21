@@ -1,7 +1,7 @@
 Factory.define :user do |n|
   n.name "Developer"
-  n.login "developer"
-  n.email "developer@domain.com"
+  n.sequence(:login) { |n| "developer#{n}" }
+  n.email { |u| "#{u.login}@domain.com" }
   n.password "secret"
   n.password_confirmation "secret"
 end
@@ -9,5 +9,5 @@ end
 Factory.define :project do |p|
   p.name "Test project"
   p.description "Test project made on factory for tests"
-  p.users { |u| u.association(:user) }
+  p.owner { |o| o.association(:user) }
 end
