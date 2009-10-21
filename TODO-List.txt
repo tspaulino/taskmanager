@@ -1,8 +1,8 @@
 passTarefas iniciais:
     - Login por usuário. Usuários devem ter:
-        - Nome/email/senha.
+        - Nome/email/senha. (Feito!)
     - Permitir que o usuário crie Projetos. Projetos deve ter:
-        - Nome/Criador/Desenvolvedores/Tarefas.
+        - Nome/Criador/Desenvolvedores/Tarefas.(Feito!)
         - Somente o dono pode adicionar novos usuários para desenvolver.
         - Usuários que participem do projeto podem criar novas tarefas dentro dele.
         - Tarefas possuem:

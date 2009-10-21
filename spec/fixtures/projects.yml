@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  owner: 
-  developers: 
+  description: MyText
+  user: 
 
 two:
   name: MyString
-  owner: 
-  developers: 
+  description: MyText
+  user: 
