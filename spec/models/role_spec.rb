@@ -3,9 +3,8 @@ require 'spec_helper'
 describe Role do
   before(:each) do
     @valid_attributes = {
-      :name => "value for name",
-      :authorizable_type => "User",
-      :authorizable_id => 1
+      :name => "Role1",
+      :authorizable => Factory.create(:project)
     }
   end
 
