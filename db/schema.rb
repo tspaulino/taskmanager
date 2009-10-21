@@ -9,15 +9,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091020232758) do
+ActiveRecord::Schema.define(:version => 20091021101736) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",              :limit => 40
+    t.integer  "authorizable_id"
+    t.string   "authorizable_type", :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["authorizable_id", "authorizable_type"], :name => "roles_polymorphic"
+  add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
+  add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
