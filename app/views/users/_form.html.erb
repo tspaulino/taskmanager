@@ -1,0 +1,13 @@
+<% m = @user.new_record? ? :post : :put %>
+<% semantic_form_for(@user, :html => {:method => m}) do |f| %>
+  <%= f.error_messages %>
+  <% f.inputs do %>
+    <%= f.input :login %>
+    <%= f.input :email %>
+    <%= f.input :password, :as  => :password %>
+    <%= f.input :password_confirmation, :as  => :password %>
+  <% end %>
+  <p>
+    <%= f.submit(@user.new_record? ? "Create" : "Update") %>
+  </p>
+<% end -%>

@@ -33,3 +33,4 @@ config.gem "cucumber"
 config.gem "remarkable_rails", :lib => false
 config.gem "webrat", :version => ">=0.5"
 config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com/"
+config.gem "pickle", :lib => false, :source => "http://gemcutter.org/"
