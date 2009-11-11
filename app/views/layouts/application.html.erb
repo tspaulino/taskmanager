@@ -22,15 +22,7 @@
      <div id="yui-main">
        <div class="yui-b">
          <div class="yui-g">
-         <!-- BODY -->
-         <% if flash[:error] %>
-           <div class="error"><%= flash[:error] %></div>
-         <% end %>
-         
-         <% if flash[:notice] %>
-            <div class="error"><%= flash[:notice] %></div>
-          <% end %>
-          
+         <!-- BODY -->         
          <%= yield %>
          </div>
        </div>
