@@ -18,7 +18,7 @@ Feature: Authentication
             | login | password |
             | bob   | secret |
 		    And I am logged in
-        When I go to path "/users"       
+		    And I am on path "/users"
+        When I go to path "/"   
         And I follow "Logout"
-        Then I should see "You have been logged out."
-
+        Then I should see "You must be logged in to access this page"

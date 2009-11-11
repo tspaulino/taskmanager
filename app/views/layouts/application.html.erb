@@ -14,7 +14,7 @@
    <%= flash_messages %>
    <div id="hd" role="banner">
      <% if logged_in? %>
-     <div class="user-box"><%= link_to "Logout", logout_url %></div>
+     <div class="user-box"><%= link_to "Logout", logout_url, :title => "Logout" %></div>
      <% end %>
      <h1>Project Manager</h1>
    </div>

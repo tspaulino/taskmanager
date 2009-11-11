@@ -5,17 +5,17 @@ Feature: Manage users
 
   Scenario: List users
     Given the following users exist
-      | login | email            | password | password_confirmation |
-      | bob   | bob@example.com  | secret | secret |
-      | jean  | jean@example.com | not_secret | not_secret |
+       | login | email            | password   | password_confirmation |
+       | bob   | bob@example.com  | secret     | secret                |
+       | jean  | jean@example.com | not_secret | not_secret            |
+
 	And I am logged in as "bob" with password "secret"
     When I go to path "/users"
     Then I should see "bob"
     And I should see "jean@example.com"
 
   Scenario: Create users
-    Given I have no users
-	And I am logged in
+    Given I am logged in
     When I go to path "/users/new"
     And I fill in "login" with "bob"
     And I fill in "email" with "bob@example.com"
@@ -28,7 +28,8 @@ Feature: Manage users
    Scenario: Update user
     Given the following users exist
         | id | login | email           | password | password_confirmation |
-        | 1  | bob   | bob@example.com | secret | secret |
+        | 1  | bob   | bob@example.com | secret   | secret                |
+
 	And I am logged in as "bob" with password "secret"
     When I go to path "/users/1/edit"
     And I fill in "login" with "robert"
@@ -38,7 +39,8 @@ Feature: Manage users
    Scenario: Destroy user
     Given the following users exist
         | id | login | email           | password | password_confirmation |
-        | 1  | bob   | bob@example.com | secret | secret |
+        | 1  | bob   | bob@example.com | secret   | secret                |
+
 	And I am logged in as "bob" with password "secret"
     And I am on path "/users"
     When I follow "Destroy"
