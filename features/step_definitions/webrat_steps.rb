@@ -12,6 +12,14 @@ Given /^I am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /^I am logged in$/ do
+  UserSession.new(:login => 'admin', :password => 'secret')
+end
+
+Given /^I am logged in as "([^\"]*)" with password "([^\"]*)"$/ do |login, password|
+  UserSession.new(:login => login, :password => password)
+end
+
 When /^I go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end

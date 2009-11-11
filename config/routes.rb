@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :users
+  map.resource :user_session
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -19,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+   
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments
@@ -42,4 +44,6 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+
+  map.root :controller => "user_sessions", :action => "new" 
 end

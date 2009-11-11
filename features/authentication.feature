@@ -5,8 +5,8 @@ Feature: Authentication
 
     Scenario: Login
         Given the following users exist
-            | login |
-            | bob   |
+            | login | password |
+            | bob   | secret |
         And I am on path "/user_sessions/new"
         When I fill in "login" with "bob"
         And I fill in "password" with "secret"
@@ -15,10 +15,10 @@ Feature: Authentication
 
     Scenario: Logout
         Given the following users exist
-            | login |
-            | bob   |
-        And I am on path "/"
-        And I am logged in
+            | login | password |
+            | bob   | secret |
+		And I am logged in
+        And I am on path "/users"       
         When I follow "Logout"
         Then I should see "You have been logged out."
 

@@ -1,0 +1,8 @@
+
+/*Styles for messages on flash[]*/
+.notice, .error, .warning, .info { font-weight: bold; margin: 0; padding: 5px 5px 5px 27px; }
+.notice p { display: block; }
+.notice { border: 1px solid #9c9; background: #e2f9e3 5px center; color: #060; }
+.error { border: 1px solid #c68484; background: #fcc 5px center; color: #c00; }
+.warning { border: 1px solid #dd0; background: #ffc 5px center; color: #000; }
+.info { border: 1px solid #82c2d4; background: #ebf5f8 5px center; }

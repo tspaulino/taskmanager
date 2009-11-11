@@ -1,3 +1,6 @@
+<% 	content_for :sidebar do |content| %>
+	<%=	link_to 'Logout', user_session_path, :controller => "user_sessions", :method => :delete, :confirm => 'Logout?' %>
+<% end %>
 <h1>Listing users</h1>
 
 <table>
