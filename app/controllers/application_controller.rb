@@ -4,21 +4,35 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
-  # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
+  filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user, :logged_in?
-  
-protected
-  def current_user_session
-    UserSession.find
-  end
-  
-  def current_user
-    current_user_session.user if current_user_session
-  end
-  
-  def logged_in?
-    !current_user.nil?
-  end
+  before_filter :require_user
+
+	private
+	  def current_user_session
+			return @current_user_session if defined?(@current_user_session)
+			@current_user_session = UserSession.find
+	  end
+
+	  def current_user
+			return @current_user if defined?(@current_user)
+			@current_user = current_user_session && current_user_session.user
+	  end
+
+  	def require_user
+      unless current_user
+        store_location
+        flash[:notice] = "You must be logged in to access this page"
+        redirect_to new_user_session_url
+        return false
+      end
+    end 
+    
+    def logged_in?
+      !current_user.nil?
+    end
+    
+    def store_location
+      session[:return_to] = request.request_uri
+    end
 end
