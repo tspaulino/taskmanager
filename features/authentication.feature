@@ -17,8 +17,8 @@ Feature: Authentication
         Given the following users exist
             | login |
             | bob   |
-        And I am on path "/"
         And I am logged in
+        And I am on path "/"
         When I follow "Logout"
         Then I should see "You have been logged out."
 

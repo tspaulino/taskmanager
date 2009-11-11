@@ -11,12 +11,29 @@
 </head>
 <body>
 <div id="doc2" class="yui-t6">
-   <div id="hd" role="banner"><h1>Project Manager</h1></div>
+   <div id="hd" role="banner">
+     <h1>Project Manager</h1>
+     <div id="user-box">
+     <% if logged_in? %>
+       <%= link_to "Logout", logout_url %>
+     <% else %>
+       <%= link_to "Login", login_url %>
+     <% end %>
+     </div>
+   </div>
    <div id="bd" role="main">
      <div id="yui-main">
        <div class="yui-b">
          <div class="yui-g">
          <!-- BODY -->
+         <% if flash[:error] %>
+           <div class="error"><%= flash[:error] %></div>
+         <% end %>
+         
+         <% if flash[:notice] %>
+            <div class="error"><%= flash[:notice] %></div>
+          <% end %>
+          
          <%= yield %>
          </div>
        </div>
